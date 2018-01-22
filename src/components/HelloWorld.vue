@@ -7,30 +7,42 @@
       <h1>You have this many points: {{ $store.state.count }}</h1>
       <div class="example">
         <h3>Conditional rendering based on state:</h3>
-        <h4>This is {{ greaterThanTen }}.</h4>
+        <div class="">
+          <h4>This is {{ greaterThanTen }}.</h4>
+        </div>
       </div>
       <div class="example">
         <h3>Alter state with actions:</h3>
-        <button class="btn btn-success" @click="increment">+ Add point</button>
-        <button class="btn btn-danger" @click="decrement">- Remove point</button>
+        <div class="">
+          <button class="btn btn-success" @click="increment">+ Add point</button>
+          <button class="btn btn-danger" @click="decrement">- Remove point</button>
+        </div>
       </div>
       <div class="example">
         <h3>Alter state with action:</h3>
-        <button class="btn btn-danger" type="button" name="button" @click="resetCount">Reset points to zero</button>
+        <div class="">
+          <button class="btn btn-danger" type="button" name="button" @click="resetCount">Reset points to zero</button>
+        </div>
       </div>
       <div class="example">
         <h3>Alter state asynchronously:</h3>
-        <button class="btn" @click="incrementAsync">Increment asynchronously</button>
+        <div class="">
+          <button class="btn" @click="incrementAsync">Increment by one asynchronously</button>
+        </div>
       </div>
       <div class="example">
         <h3>Set state via input</h3>
-        <input type="number" name="" value="" v-model="$store.state.count">
+        <div class="">
+          <input type="number" name="" value="" v-model="$store.state.count">
+        </div>
       </div>
       <div class="example">
         <h3>Toggle state behavior & trigger continuously state changes:</h3>
-        <h2>Gain points automatically?</h2>
-        <input type="checkbox" name="" value="" @click="toggleAutoPoints">
-        <div class="">{{ $store.state.automaticPoints }}</div>
+        <div class="">
+          <p>Gain points automatically?</p>
+          <input type="checkbox" name="" value="" @click="toggleAutoPoints">
+          <div class="">{{ $store.state.automaticPoints }}</div>
+        </div>
       </div>
    </div>
  </div>
@@ -81,6 +93,22 @@ button:hover {
   background: gray;
 }
 .example {
-  border: solid 1px black;
+  padding: 0 5%;
+}
+.example:nth-of-type(even) {
+  /*border: solid 1px black;*/
+  background-color: lightgray;
+}
+.example * {
+  text-align: left;
+  display: inline-block;
+  position: relative;
+}
+.example h3 {
+  width: 30%;
+}
+.example div {
+  width: 60%;
+  text-align: center;
 }
 </style>
