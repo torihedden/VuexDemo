@@ -40,8 +40,8 @@
         <h3>Toggle state behavior & trigger continuously state changes:</h3>
         <div class="">
           <p>Gain points automatically?</p>
-          <input type="checkbox" name="" value="" @click="toggleAutoPoints">
-          <div class="">{{ $store.state.automaticPoints }}</div>
+          <input type="checkbox" name="" value="" @click="toggleAutoPoints" v-model="$store.state.automaticPoints">
+          {{ $store.state.automaticPoints }}
         </div>
       </div>
    </div>
