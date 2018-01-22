@@ -31,13 +31,13 @@
         </div>
       </div>
       <div class="example">
-        <h3>Set state via input</h3>
+        <h3>Set state via input:</h3>
         <div class="">
           <input type="number" name="" value="" v-model="$store.state.count">
         </div>
       </div>
       <div class="example">
-        <h3>Toggle state behavior & trigger continuously state changes:</h3>
+        <h3>Toggle state behavior & trigger continuous state changes:</h3>
         <div class="">
           <p>Gain points automatically?</p>
           <input type="checkbox" name="" value="" @click="toggleAutoPoints" v-model="$store.state.automaticPoints">
