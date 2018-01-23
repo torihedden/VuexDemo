@@ -1,19 +1,33 @@
-// TODO: add "timer" that automatically adds one point a second
-// add ability to toggle this previously mentioned functionality
+// TODO: add "highest score ever" bit and have it only
+// communicate with the count?
 
 import Vue from 'vue'
 import Vuex from 'vuex'
 
 Vue.use(Vuex)
 
+// For example, one can use vuex-persistedstate:
+// This is a plugin for vuex to handle and store state between page refreshes.
+
 const state = {
   count: 0,
   automaticPoints: false,
-  pointInterval: null
+  autoPointGainFactor: 1,
+  pointInterval: null,
+  has100Points: false
 }
 
 const getters = {
-  greaterThanTen: state => state.count >= 10 ? 'a lot (10 or more)' : 'less than 10. That\'s not a lot of points'
+  greaterThanTen: state => state.count >= 10 ? 'a lot (10 or more)' : 'less than 10. That\'s not a lot of points',
+  has100Points: state => {
+    if (state.count >= 100) {
+      state.autoPointGainFactor = 2
+      return true
+    } else {
+      state.autoPointGainFactor = 1
+      return false
+    }
+  }
 }
 
 const mutations = {
@@ -30,7 +44,7 @@ const mutations = {
     state.automaticPoints = !state.automaticPoints
     if (state.automaticPoints) {
       state.pointInterval = setInterval(() => {
-        state.count++
+        state.count += state.autoPointGainFactor
       }, 1000)
     } else {
       clearInterval(state.pointInterval)

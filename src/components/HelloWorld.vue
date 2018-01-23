@@ -12,6 +12,12 @@
         </div>
       </div>
       <div class="example">
+        <h3>Additional Conditional rendering based on state:</h3>
+        <div class="">
+          <h4 v-if="has100Points">Congrats! You've unlocked the 100 points perk.</h4>
+        </div>
+      </div>
+      <div class="example">
         <h3>Alter state with actions:</h3>
         <div class="">
           <button class="btn btn-success" @click="increment">+ Add point</button>
@@ -39,9 +45,17 @@
       <div class="example">
         <h3>Toggle state behavior & trigger continuous state changes:</h3>
         <div class="">
-          <p>Gain points automatically?</p>
+          <p>Gain {{ $store.state.autoPointGainFactor }} points automatically?</p>
           <input type="checkbox" name="" value="" @click="toggleAutoPoints" v-model="$store.state.automaticPoints">
           {{ $store.state.automaticPoints }}
+        </div>
+      </div>
+      <div class="example">
+        <h3>Good Resources:</h3>
+        <div class="">
+          <a href="https://alligator.io/vuejs/intro-to-vuex/">Managing Vue.js State with Vuex</a>
+          <br>
+          <a href="https://medium.com/codingthesmartway-com-blog/vue-js-2-state-management-with-vuex-introduction-db26cb495113">Vue.js 2 State Management With Vuex - Introduction</a>
         </div>
       </div>
    </div>
@@ -62,7 +76,8 @@ import { mapGetters, mapActions } from 'vuex'
 export default {
   name: 'hello',
   computed: mapGetters([
-    'greaterThanTen'
+    'greaterThanTen',
+    'has100Points'
   ]),
   methods: mapActions([
     'increment',
