@@ -39,7 +39,7 @@
       <div class="example">
         <h3>Set state via input:</h3>
         <div class="">
-          <input type="number" name="" value="" v-model="$store.state.count">
+          <input type="number" name="" value="" v-model.number="$store.state.count">
         </div>
       </div>
       <div class="example">
